@@ -1,0 +1,99 @@
+{% extends "basic.html" %} {% load static %} {% block head %}
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  type="text/css"
+  rel="stylesheet"
+/>
+<style>
+  #patient {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+
+  #patient td,
+  #patient th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  #patient tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  #patient tr:hover {
+    background-color: #ddd;
+  }
+
+  #patient th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #009688;
+    margin-bottom: 25px;
+    color: white;
+  }
+</style>
+{% endblock %} {% block body %}
+
+<br />
+<center><h2 class="text-center text-white">Consultation History</h2></center>
+<div style="min-height: 80vh !important">
+  <div class="container mt-5 mb-3">
+    <br />
+
+    <table id="patient" class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr class="text-center">
+          <th>Patient name</th>
+          <th>Patient Email</th>
+          <th>View Patient's profile</th>
+          <th>Predicted Disease Name</th>
+          <th>Consultation Date</th>
+          <th>Consultation Status</th>
+          <th>Resume Consultation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for i in consultation %}
+
+        <tr>
+          <td>{{i.patient.name}}</td>
+          <td>{{i.patient.user.email}}</td>
+          <td style="width: 200px">
+            <form
+              action="{% url 'pviewprofile' i.patient.user.username %}"
+              method="GET"
+            >
+              {% csrf_token %}
+              <button type="submit" class="btn w3-btn w3-teal w3-text-white">
+                view profile
+              </button>
+            </form>
+          </td>
+
+          <td>{{i.diseaseinfo.diseasename}}</td>
+          <td>{{i.consultation_date}}</td>
+          <td>{{i.status}}</td>
+
+          <td>
+            <form action="{% url 'consultationview' i.id %}" method="GET">
+              {% csrf_token %}
+              <button type="submit" class="btn w3-btn w3-teal w3-text-white">
+                Consult
+              </button>
+            </form>
+          </td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

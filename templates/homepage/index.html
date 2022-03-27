@@ -1,0 +1,291 @@
+﻿
+{% extends "basic.html" %}
+{% load static %}
+
+ 
+	{% block head %}
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+    
+<div class="jumbotron p-0 " style="background: rgba(235, 233, 233, 0.288);">
+    {% comment %} <h1 class="display-4">Be your own doctor...</h1> {% endcomment %}
+    {% comment %} <p class="lead">
+            It might have happened so many times that you or someone yours need doctor’s help immediately,
+             but they are not available due to some reasons.The Disease Prediction system is an end user
+              support and online consultation project. Here, we propose a web application that allow users 
+              to get instant guidance on their disease through an intelligent system. The application is 
+              fed with various details and the disease associated with those details.The application allows
+               user to share their disease related issues.It then processes user specific details to check 
+               for various illness that could be associated with it.Here we use some intelligent data mining
+                techniques to guess the most accurate illness that could be associated with patient’s details.
+                Based on result, patient can contact doctor accordingly for further treatment.
+    </p> {% endcomment %}
+  
+    <div class="w3-content" style="min-width:500px; max-width: 100vw !important;">
+
+  <img class="mySlides w3-animate-fading" src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1191&q=80" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80" style="width:100%">
+  <img class="mySlides w3-animate-fading" src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" style="width:100%">
+</div>
+
+    </div>
+
+  
+  
+    
+  
+     {% if user.is_authenticated %}
+
+     
+     {% else %}
+
+      <p class="lead w3-center">
+      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target=".bd-example-modal-lg">Get started</button>
+      </p>
+    
+
+
+
+<br><br><br>
+<div class="container mt-5 mb-3" style="width:fit-content;">
+      <center>
+        <h1 class = "text-light" style="background:rgba(49, 49, 49, 0.288); ">Sign-In  As</h1>
+        </center>
+      
+      
+      <form>
+          <div class="container mt-5 mb-5">
+       <div class="row">
+          <div class="col">
+             <a href="{% url 'sign_in_admin' %}">
+      <img class="w3-circle" style="max-width: 200px; max-height: 200px;" alt="admin" src="{% static 'homepage/images/admin.png' %}" >
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_doctor' %}">
+        
+      <img class="w3-circle" style="max-width: 200px; max-height: 200px;"   src="{% static 'homepage\images\Doctor.png' %}" alt="doctor" >
+      <!--src="{% static 'homepage/doctor.png' %}"  -->
+    </a>
+        
+    
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_patient' %}">
+      <img class="w3-circle " style="max-width: 200px; max-height: 200px;" alt="patient" src="{% static 'homepage/images/patient.png' %}" >
+      </a>
+          </div>
+        </div>
+        </div>
+      </form>
+</div>
+
+
+    
+
+    {% endif %}
+
+<br><br>
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-In  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5">
+ <div class="row">
+    <div class="col">
+       <a href="{% url 'sign_in_admin' %}">
+<img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-Up  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5 ml-5 mr-5">
+ <div class="row">
+
+    <div class="col">
+<a href="{% url 'signup_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'signup_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<br><br><br><br>
+<center><h1 class = "text-light" style="background:rgba(49, 49, 49, 0.288); ">Doctors</h1></center>
+<div class="row mx-2 mt-5 mb-5">
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Dr. MANISH BANSAL </h5>
+                <img  alt="admin" src="{% static 'homepage/c31.jpg' %}" width="200" height="150" class="rounded">
+                <p class="card-text">H.No-1283, Ward No-14, New Anaz Mandi Road, P.O-Radaur, Distt. Yamuna Nagar - 135133, (Haryana).</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Dr. BANSAL JATINDER PAUL </h5>
+                <img  alt="admin" src="{% static 'homepage/c41.jpg' %}" width="200" height="150" class="rounded">
+                <p class="card-text">Om Niwas Khai Basti, Khai Road, Lehragaga-148031, Distt. Sangrur, Punjab.</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">DR. RADHIKA SWAROOP</h5>
+                <img  alt="admin" src="{% static 'homepage/s72.jpg' %}" width="200" height="150" class="rounded">
+                <p class="card-text">Swaroop Hospital, 1, Hawa Sarak, Civil Lines, # Jaipur-302 019.</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<br><br><br><br>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+  
+<footer class="w3-container pt-lg-5 w3-teal w3-center w3-margin-top" >
+  <p>Find me on social media.</p>
+  <i class="fa fa-facebook-official fs-100 w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank"><span class=" text-white w3-hover-text-amber" style="text-decoration: none; font-size: 20px;">Acro</span></a></p>
+</footer>
+
+
+
+
+
+</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 5000);    
+}
+</script>
+    
+
+
+
+
+    
+{% endblock %}
