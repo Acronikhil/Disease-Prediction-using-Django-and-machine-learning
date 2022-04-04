@@ -6,6 +6,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
 <style>
     #chat_window{
 
@@ -206,8 +207,8 @@ img{ max-width:100%;}
 
 
 {% if user.patient.is_patient  %}
-  <div class="container ml-5 mr-5">
-          <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#demo">Give Rating and Reviews to Doctor {{consultation.doctor.name}}</button>
+  <div class="container ml-5 mr-5 w3-text-white">
+          <button type="button" class="btn btn-outline-warning" data-toggle="collapse" data-target="#demo">Give Rating and Reviews to Doctor {{consultation.doctor.name}}</button>
                   <div id="demo" class="collapse">
                       
                     <form action="{% url 'rate_review' consultation.id %}" method="POST"> 
@@ -237,30 +238,34 @@ img{ max-width:100%;}
                                 <label for="comment">Reviews:</label>
                                 <textarea class="form-control" rows="5" id="comment" name="review"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn w3-teal">Submit</button>
                     </form>
 
                   </div>
 
   </div>
     {% endif %}
+
+    {% if user.patient.is_patient  %}
+    {% if user.consultation.is_active  %}
   <div class="container mt-4 ml-5 mr-5">
-          <button type="button" class="btn w3-text-red w3-hover-white w3-btn w3-hover-text-red w3-text-white w3-border w3-border-red w3-round-large mb-4" data-toggle="collapse" data-target="#demo2">Close Consultation</button>
-          <div id="demo2" class="collapse">Are you sure to close consultation ?
+          <button type="button" class="btn btn-danger  mb-4" data-toggle="collapse" data-target="#demo2">Close Consultation</button>
+          <div id="demo2" class="collapse w3-text-white">Are you sure to close consultation ?
             <br>
 
             <form action="{% url 'close_consultation' consultation.id %}" method="POST"> 
               {% csrf_token %}
-            <button type="submit" class="btn btn-outline-success mr-2 mt-2" style="display:inline-block">Yes</button>
+            <button type="submit" class="btn btn-success mr-2 mt-2" style="display:inline-block">Yes</button>
          
-            <div class="btn btn-outline-danger mt-2"  data-toggle="collapse" >NO</div>
+            <div class="btn btn-danger mt-2"  data-toggle="collapse" >NO</div>
           </form>
           </div>
       
   </div>
 
     
-
+{% endif  %}
+{% endif  %}
 
 
 
@@ -337,11 +342,12 @@ img{ max-width:100%;}
 
         
            
-            <div class="container-fluid border border-success rounded-lg" id="chat_window" style="background-color: #1423301a !important;">
+            <div class="container-fluid border border-success rounded-lg" id="chat_window" 
+            style="background-image: url('https://images.unsplash.com/photo-1554110397-9bac083977c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-repeat: no-repeat; backdrop-filter: brightness(1.5);" >
                         
              
-                                <div id="chat-body" class="panel panel-default">
-                                    <center> <div class="panel-heading">Chat Box 
+                                <div id="chat-body" class="panel panel-default ">
+                                    <center> <div class="panel-heading w3-green">Chat Box 
                                              </div>  </center>
 
                                     <div id="msg-list-div" class="panel-body">
@@ -368,7 +374,7 @@ img{ max-width:100%;}
                                                 <input type="text" id="chat-msg" name="chat-msg" class="form-control" placeholder="Type a message" />
                                                 
                                             <div>
-                                                    <input class="btn btn-primary" id="send" type="submit" value="Send"/>
+                                                    <input class="btn w3-btn w3-teal" id="send" type="submit" value="Send"/>
                                         </div>
                                                 
                                                
