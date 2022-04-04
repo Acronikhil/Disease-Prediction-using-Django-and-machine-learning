@@ -5,10 +5,9 @@
 
 {% if obj.sender == request.user %}
 <div class="outgoing_msgs">
-    <div class="sent_msg">
-        <span class="time_date"> {{ obj.created }} </span> 
-
-        <li class="text-right list-group-item">{{ obj.message }} </li>
+    <div class="sent_msg mr-3">
+        <span class="time_date w3-text-white pr-2"> {{ obj.created }} </span> 
+        <li class=" text-right list-group-item" > {{ obj.message }} &nbsp;&nbsp; </li>
        
       
     </div>
@@ -20,11 +19,11 @@
     </div>
     <div class="received_msg">
       <div class="received_withd_msg">
-        <span class="time_date"> {{ obj.created }} </span>
+        <span class="time_date w3-text-white"> {{ obj.created }} </span>
 
-        <li class="text-left list-group-item">{{ obj.message }}</li>
+        <li class="text-left list-group-item">&nbsp;&nbsp; {{ obj.message }}</li>
        
-        <span class="time_date"> {{obj.sender}}</span> 
+        <span class="time_date w3-text-white"> {{obj.sender}}</span> 
 
         
       </div>
@@ -34,7 +33,7 @@
 {% endif %}
 {% empty %}
 <br><br>
-<li class="text-right list-group-item">No messages yet!</li>
+<li class="text-right w3-text-amber list-group-item">No messages yet!</li>
 <br><br>
 
 {% endfor %}

@@ -21,12 +21,14 @@ model = jb.load('trained_model')
 def home(request):
 
   if request.method == 'GET':
+     
+      dobj = doctor.objects.all()
         
       if request.user.is_authenticated:
-        return render(request,'homepage/index.html')
+        return render(request,'homepage/index.html',{"dobj":dobj})
 
       else :
-        return render(request,'homepage/index.html')
+        return render(request,'homepage/index.html',{"dobj":dobj})
 
 
 

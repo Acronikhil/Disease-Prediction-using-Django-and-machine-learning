@@ -173,8 +173,8 @@ $("#predict").click(function () {
 
 
 
-
-<div class="container">
+<div style="min-height: 100vh; margin: 0 0; padding: 0 0;background: rgba(54, 54, 54, 0.438)">
+<div class="container" >
       <!-- 
   
   <div class="dropdown">
@@ -189,22 +189,22 @@ $("#predict").click(function () {
   </div> -->
 
 
-  <div class="container">
+  <div class="container" >
     <br>
-    <div class="text-center"> 
-      <h3>
-          Identify possible conditions and treatment related to your symptoms.
+    <div class="text-center "> 
+      <h3  class="text-center w3-text-white mt-5 text-white">
+          Identify possible conditions and treatment related to your Symptoms.
       </h3><br>
-            <button onclick="Functionshow()" class="btn btn-primary dropdown-toggle">Add symptoms</button>
+            <button onclick="Functionshow()" class="btn mb-3 w3-dropdown-click w3-btn w3-teal dropdown-toggle">Add symptoms</button>
     </div>
   </div >
 
-  <div id="myDropdown" class="drop-content">
+  <div id="myDropdown" class="drop-content w3-animate-opacity">
 
-        <div id="searchbardiv" class="searchbardiv">    
+        <div id="searchbardiv" class="searchbardiv  my-3 w3-display-container" style="font-weight: bold;">    
       
-            <input id="searchbar" class="searchbar" onkeyup="search_symptoms()" type="text"
-              name="search" placeholder=" Search symptoms.. "> <br>
+            <input id="searchbar" class="searchbar mx-0 w3-center w3-display-middle w3-border-teal w3-text-teal" onkeyup="search_symptoms()" type="text"
+              name="search" placeholder=" Search Symptoms.. "> <br>
         </div> 
 
         <div class="container" id="container-dropdown">
@@ -249,12 +249,12 @@ $("#predict").click(function () {
         <div class="card" id= "symptoms-box">
     
       {% csrf_token %}
-            <div class="card-header">Symptoms list -</div>
+            <div class="card-header w3-animate-bottom w3-xlarge w3-text-teal">Symptoms list -</div>
                     <div class="card-body" id="sympbox" >
                     </div>
                           <br>
                           <div class="card-footer">
-                                <button id="predict" class="btn btn-success">Predict</button>
+                                <button id="predict" class="btn w3-btn w3-teal">Predict</button>
                           </div>
              </div>
         </div>
@@ -264,17 +264,17 @@ $("#predict").click(function () {
 
   <div id="resultdiv" style="display: none;" >
         <div class="text-center">
-              <div class="card" id="predicted-data">
+              <div class="card  w3-text-white" id="predicted-data">
                     <div>
                             <span class="diseasefield" >Patient name : {{ user.patient.name }}</span>
                             <span class="diseasefield" >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Age : {{ user.patient.age }} </span>
                     </div>
-                    <span class="diseasefield" >predicted disease is : </span><span class="diseasefield" id="diseasefield" style="color: #092700; text-shadow: 2px 2px 4px rgb(36, 255, 45);"></span> <br>
+                    <span class="diseasefield" >predicted disease is : </span> &nbsp <b><span class="animate__heartBeat w3-text-deep-orange " id="diseasefield" ></span></b> <br>
                     <br>
-                    <span class="diseasefield">confidence score of :  </span>
+                    <span class="diseasefield">confidence score of :  &nbsp   </span>
                     <span>
                           <div class="progress" style="display: inline-block;width:140px">
-                              <div id="percentage" class="progress-bar" style="width: 0%">0%
+                              <div id="percentage" class="progress-bar w3-red" style="width: 0%">0%
                               </div>
                           </div>
                     </span>
@@ -282,15 +282,15 @@ $("#predict").click(function () {
                     </div>
               </div>
 
-        <div class="text-center mt-4 mb-4"> 
-              <button class="btn btn-outline-success">
-                    <a id="href" href="https://www.google.com/search?q=anuj" target="_blank" rel="noopener noreferrer">Click here to know more about &nbsp 
-                    <span id="diseasesearch" style="color: crimson;"></span></a>
+        <div class="text-center mt-4 mb-4" > 
+              <button class="btn w3-text-light-green w3-text-amber" style="background: #323231a6 !important">
+                    <a id="href" href="https://www.google.com/search?q=anuj" class="btn w3-text-amber" style="text-decoration:none;" target="_blank" rel="noopener noreferrer">Click here to know more about &nbsp 
+                    <span id="diseasesearch" class="w3-text-red w3-large"></span></a>
               </button>
         </div>
           <br><br>
 
-        <div class="text-center">
+        <div class="text-center w3-text-white">
           <h4>This tool does not provide medical advice. It is intended for informational purposes only.
           </h4><h4>It is not a substitute for professional medical advice, diagnosis or treatment. 
           </h4>
@@ -299,12 +299,12 @@ $("#predict").click(function () {
         </div>
 
 
-<div class="mx-auto text-center " style="width:350px">
+<div class="mx-auto text-center mb-0" style="width:350px">
   
      
         <div >  <form action="consult_a_doctor" method="GET">
             {% csrf_token %} 
-            <button id="consultbtn" type="submit" class="btn btn-primary"> Consult a <span id="consultdoctor"  name="consultdoctor" > </span> doctor</button>
+            <button id="consultbtn" type="submit" class="btn w3-btn w3-teal mb-5"> Consult a <span id="consultdoctor"  name="consultdoctor" > </span> doctor</button>
           </form>
         </div>
       
@@ -322,7 +322,7 @@ $("#predict").click(function () {
 
 
 </div>
-
+</div>
 
 
 {% endblock %}

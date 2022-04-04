@@ -14,8 +14,8 @@
 
 
 <br>
-<div class="container mt-2 mb-3">
-<center><h2>Patient Profile</h2>
+<div class="container mt-2 " style="min-height:84.6vh">
+<center><h2 class="text-center mt-5 text-white">Patient Profile</h2>
 </center><br>
 
 
@@ -30,7 +30,7 @@
                   <h4 class="card-title">Patient name : {{puser.patient.name}}</h4>
                   <p class="card-text">Patient ID - {{puser.patient.user_id}}</p>
                   <p class="card-text">Patient email - {{puser.email}}</p>
-                  <a href="{% url 'pviewprofile' puser.username %}" class="btn btn-primary">View Profile</a>
+                  <a href="{% url 'pviewprofile' puser.username %}" class="btn w3-button w3-teal">View Profile</a>
                 </div>
               </div>
 
@@ -40,15 +40,15 @@
         <div class="col" >
                <div class="row">
             
-               <a id="links" class="btn btn-outline-info btn-block" href="{% url 'checkdisease' %}">check disease </a><br>
+               <a id="links" class="btn btn-outline-light btn-block" href="{% url 'checkdisease' %}">check disease </a><br>
                </div>
                 
                <div class="row">
-                <a class="btn btn-outline-info btn-block" href="{% url 'pconsultation_history' %}">view consulation history</a><br>
+                <a class="btn btn-outline-light btn-block" href="{% url 'pconsultation_history' %}">view consulation history</a><br>
                 </div>
 
                <div class="row">
-                <button class="btn btn-outline-info btn-block" data-toggle="modal" data-target="#myModal-feedback">Give feedbacks </button><br>
+                <button class="btn btn-outline-light btn-block" data-toggle="modal" data-target="#myModal-feedback">Give feedbacks </button><br>
                 </div>
                
 
@@ -75,7 +75,7 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button id="submit" type="submit" class="btn btn-success" data-dismiss="modal" style="color: white;">Submit</button>
+          <button id="submit" type="submit" class="btn w3-button w3-teal" data-dismiss="modal" style="color: white;">Submit</button>
         </div>
             </form>
         

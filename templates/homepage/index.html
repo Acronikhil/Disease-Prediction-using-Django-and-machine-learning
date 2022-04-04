@@ -184,13 +184,45 @@
   </div>
 </div>
 
+<div class="my-5 w3-content w3-container w3-round-xlarge w3-padding-64" style="background: #43979833; box-shadow: 0 2px 12px rgba(122, 233, 244, 0.7)" id="contact">
+  <h3 class="w3-center w3-text-white">Contact Us</h3>
+  <p class="w3-center w3-text-white"><em>lorem ipsum dolor sit amet, consect.</em></p>
+
+  <div class="w3-row  w3-text-white w3-section ">
+    <div class="w3-col m4 w3-container">
+      {% comment %} <img src="/w3images/map.jpg" class="w3-image w3-round" style="width:100%"> {% endcomment %}
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235359.46623544602!2d75.80307841640628!3d22.8212926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39631cf455b4cec3%3A0x426141aa8141f7a5!2sAcropolis%20Institute%20Of%20Technology%20And%20Research%20-%20AITR!5e0!3m2!1sen!2sin!4v1649068666378!5m2!1sen!2sin" class="w3-image w3-round" style="width:100%; border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Indore, MP<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +91 123456987<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: diseasepredict@gmail.com<br>
+      </div>
+      <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 
 
-<br><br><br><br>
-<center><h1 class = "text-light" style="background:rgba(49, 49, 49, 0.288); ">Doctors</h1></center>
-<div class="row mx-2 mt-5 mb-5">
+<center><h1 class = "text-light" style="background:rgba(49, 49, 49, 0.288); ">Our Doctors</h1></center>
+{% comment %} <div class="row mx-2 mt-5 mb-5">
     <div class="col">
         <div class="card">
             <div class="card-body text-center">
@@ -221,12 +253,32 @@
             </div>
         </div>
     </div>
+</div> {% endcomment %}
+
+<div class="container">
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+   
+   {% for i in dobj %}
+    <div class="w3-card card border-info mb-3" style="max-width: 18rem;">
+  <div class="card-header border-info text-center w3-xxlarge">{{i.specialization}}</div>
+  <div class="card-body ">
+    <h5 class="card-title w3-xlarge text-center">Dr. {{i.name}}</h5>
+    <p class="card-text">Specialization: {{i.specialization}}</p>
+    <p class="card-text">Qualification: {{i.qualification}}</p>
+  </div>
+   <div class="card-footer bg-transparent border-info w3-center p-3"> <span class="w3-teal text-center w3-text-white px-3 py-2 w3-round-xxlarge"> Rating: {{i.rating}}/5</span></div>
 </div>
+</div>
+    </div>
+    
+    {% endfor %}
+  </div>
   
+</div>
 
-<br><br><br><br>
 
-        
+</div>   
 
 
 
@@ -242,15 +294,24 @@
     
 
   
-<footer class="w3-container pt-lg-5 w3-teal w3-center w3-margin-top" >
-  <p>Find me on social media.</p>
-  <i class="fa fa-facebook-official fs-100 w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank"><span class=" text-white w3-hover-text-amber" style="text-decoration: none; font-size: 20px;">Acro</span></a></p>
+<footer class="w3-container pt-lg-5 w3-teal w3-center  pb-5" >
+  <p class="w3-xxlarge">Find us on social media.</p>
+  <i class="fa w3-xlarge fa-facebook-official fs-100 w3-hover-opacity"></i>
+  <i class="fa w3-xlarge fa-instagram w3-hover-opacity"></i>
+  <i class="fa w3-xlarge fa-snapchat w3-hover-opacity"></i>
+  <i class="fa w3-xlarge fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa w3-xlarge fa-twitter w3-hover-opacity"></i>
+  <i class="fa w3-xlarge fa-linkedin w3-hover-opacity"></i>
+  <!-- <p>Created with  by <a href="https://acronikhil.github.io/NikhilDubey/" target="_blank"><span class=" text-white w3-hover-text-amber" style="text-decoration: none; font-size: 20px;">Acro</span></a></p> -->
+   <p class="w3-large w3-text-white mt-2 mb-3 created mx-auto  " style="background: rgba(32, 32, 32, 0.336); max-width: 300px; ">
+                    Created With<span class="animate__animated animate__heartBeat p-2">
+                        <i class="fa fa-heart animate__animated animate__heartBeat animate__infinite"
+                            style="color: red"></i></span>
+                    By
+                    <a class="text-decoration-none w3-text-white w3-hover-text-yellow  p-2" href="https://acronikhil.github.io/NikhilDubey/" target="_self"
+                        title>Nikhil
+                        Dubey</a>& Team
+                </p>
 </footer>
 
 
